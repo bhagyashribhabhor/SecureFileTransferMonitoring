@@ -1,0 +1,35 @@
+=================================================================
+        SECURE FILE TRANSFER MONITOR
+             SECURITY REPORT
+=================================================================
+
+Report Generated: 2026-09-16 15:34:02
+Monitoring User(s): bhagy
+
+-----------------------------------------------------------------
+ACTIVITY SUMMARY
+-----------------------------------------------------------------
+Total Events              : 17
+Files Created             : 6
+Files Modified            : 5
+Files Deleted             : 0
+Files Moved               : 0
+
+-----------------------------------------------------------------
+SECURITY ANALYSIS
+-----------------------------------------------------------------
+Sensitive File Events     : 6
+High Risk Events          : 4
+Medium Risk Events        : 2
+Low Risk Events           : 11
+Unauthorized Transfers    : 1
+Integrity Alerts          : 1
+
+-----------------------------------------------------------------
+SECURITY STATUS
+-----------------------------------------------------------------
+STATUS: HIGH RISK ACTIVITY DETECTED
+
+=================================================================
+End of Security Report
+=================================================================
