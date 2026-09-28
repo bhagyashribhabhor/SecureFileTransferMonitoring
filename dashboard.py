@@ -2,14 +2,12 @@ import streamlit as st
 import csv
 import os
 
-# Page configuration
 st.set_page_config(
     page_title="Secure File Transfer Monitoring",
     page_icon="🔐",
     layout="wide"
 )
 
-# Title
 st.title("🔐 Secure File Transfer Monitoring System")
 
 st.write(
@@ -25,7 +23,7 @@ high_risk = 0
 medium_risk = 0
 low_risk = 0
 
-# Read audit log
+# Read real audit log if available
 if os.path.exists(audit_file):
 
     with open(audit_file, "r", encoding="utf-8", errors="ignore") as file:
@@ -47,7 +45,18 @@ if os.path.exists(audit_file):
             elif severity == "LOW":
                 low_risk += 1
 
-# Dashboard
+    demo_mode = False
+
+else:
+    # Demo values for deployed application
+    total_events = 264
+    high_risk = 4
+    medium_risk = 3
+    low_risk = 257
+
+    demo_mode = True
+
+
 st.subheader("📊 Security Dashboard")
 
 col1, col2, col3, col4 = st.columns(4)
@@ -64,19 +73,22 @@ with col3:
 with col4:
     st.metric("Low Risk", low_risk)
 
-# Audit log status
+
 st.subheader("📋 Audit Log")
 
-if os.path.exists(audit_file):
+if demo_mode:
+    st.info(
+        "Demo Mode: Sample security statistics are displayed because "
+        "the local audit log is not included in the deployed application."
+    )
+else:
     st.success(
         "Audit log is available with {} recorded events.".format(
             total_events
         )
     )
-else:
-    st.warning("No audit_log.csv found.")
 
-# Features
+
 st.subheader("🛡️ Project Features")
 
 features = [
@@ -92,7 +104,9 @@ features = [
 for feature in features:
     st.write("• " + feature)
 
-# Project status
+
 st.subheader("🚀 Project Status")
 
-st.success("Secure File Transfer Monitoring System is running successfully.")
+st.success(
+    "Secure File Transfer Monitoring System is running successfully."
+)
